@@ -1,0 +1,42 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by Name or Category"
+      [(ngModel)]="title"
+    />
+    <div class="input-group-append">
+      <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="searchTitle()"
+      >
+      Search
+      </button>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Elections List</h4>
+    <div>
+        <button (click)="orderByVoteCount()" class="btn btn-success">Order by More no of votes</button>&nbsp;
+        <button (click)="sortByLatest()" class="btn btn-success">Sort by latest created</button>
+    </div>
+       <table class = "table table-bordered table-striped"><tr>
+      <th>Name</th>
+      <th>Total polled votes</th>
+      <th>Total eligible users</th>
+      <th>Users percentage</th></tr>
+      <tr *ngFor="let election of elections; let i = index">
+        <td>{{ election.name }}</td>
+        <td>{{ election.total_polled_votes }}</td>
+        <td>{{ election.total_eligible_users }}</td>
+        <td>{{ election.percentage_of_votes }}%</td>
+      </tr>
+    </table>
+
+  </div>
+
+    </div>
